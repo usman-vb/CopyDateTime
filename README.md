@@ -1,3 +1,4 @@
 # CopyDateTime
 A Simple program to Copy current Date and Time to the Clipboard.
-[![CopyDateTime ScreenShot](https://github.com/usman-vb/CopyDateTime/blob/main/CopyDateTime-Screenshot-1.jpg)]
+
+<img src="https://github.com/usman-vb/CopyDateTime/blob/main/CopyDateTime-ScreenShot-1.jpg" width="400" height="340" />
