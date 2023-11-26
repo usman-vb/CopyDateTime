@@ -132,22 +132,20 @@ Attribute VB_Exposed = False
 'Project Version: 0.1.0
 'Programming Platform: VB6 (Classic Visual Basic)
 'Target OS: Microsoft Windows 32bit / 64bit (make sure VB6 runtime files are installed)
-'Last Modified On: Saturday, 25.11.2023 - 07:05:22 PM PST
+'Last Modified On: Sunday, 26.11.2023 - 11:13:16 AM PST
 'Project Author: Usman Afzal (https://www.usmanafzal.pk); (e-Mail: ua7575@gmail.com)
-'Project Description: A Simple program to Copy current Date and Time to Clipboard.
+'Project Description: A Simple VB6 program to Copy current Date and Time to Clipboard.
 
 Option Explicit
 Private Declare Sub Sleep Lib "kernel32.dll" (ByVal dwMilliseconds As Long)
 
 Private Sub LastModifiedCheckBox_Click()
 
-Label1.Caption = ""
+'Label1.Caption = ""
 
 If LastModifiedCheckBox.Value = 1 Then
     ExtraTxt.Text = "yes"
-End If
-
-If LastModifiedCheckBox.Value = 0 Then
+Else
     ExtraTxt.Text = "no"
 End If
 
@@ -159,31 +157,28 @@ Sub ConditionsToFollow()
 
 If ExtraTxt.Text = "yes" And OptionTxt.Text = "simple" Then
 Label1.Caption = "Last Modified On: " & Format$(Now, "dddd, dd.mm.yyyy") & " - " & Format$(Time, "hh:mm:ss AM/PM") & " PST"
-End If
 
-If ExtraTxt.Text = "no" And OptionTxt.Text = "simple" Then
+ElseIf ExtraTxt.Text = "no" And OptionTxt.Text = "simple" Then
 Label1.Caption = Format$(Now, "dddd, dd.mm.yyyy") & " - " & Format$(Time, "hh:mm:ss AM/PM") & " PST"
-End If
 
-If ExtraTxt.Text = "yes" And OptionTxt.Text = "html" Then
+ElseIf ExtraTxt.Text = "yes" And OptionTxt.Text = "html" Then
 Label1.Caption = "<!-- " & "Last Modified On: " & Format$(Now, "dddd, dd.mm.yyyy") & " - " & Format$(Time, "hh:mm:ss AM/PM") & " PST" & " -->"
-End If
 
-If ExtraTxt.Text = "no" And OptionTxt.Text = "html" Then
+ElseIf ExtraTxt.Text = "no" And OptionTxt.Text = "html" Then
 Label1.Caption = "<!-- " & Format$(Now, "dddd, dd.mm.yyyy") & " - " & Format$(Time, "hh:mm:ss AM/PM") & " PST" & " -->"
-End If
 
-If ExtraTxt.Text = "yes" And OptionTxt.Text = "css" Then
+ElseIf ExtraTxt.Text = "yes" And OptionTxt.Text = "css" Then
 Label1.Caption = "/* " & "Last Modified On: " & Format$(Now, "dddd, dd.mm.yyyy") & " - " & Format$(Time, "hh:mm:ss AM/PM") & " PST" & " */"
-End If
 
-If ExtraTxt.Text = "no" And OptionTxt.Text = "css" Then
+ElseIf ExtraTxt.Text = "no" And OptionTxt.Text = "css" Then
 Label1.Caption = "/* " & Format$(Now, "dddd, dd.mm.yyyy") & " - " & Format$(Time, "hh:mm:ss AM/PM") & " PST" & " */"
 End If
 
 End Sub
 
 Private Sub Command1_Click()
+
+ConditionsToFollow
 
 CopyToClipBoard
 
@@ -227,33 +222,21 @@ End Sub
 
 Private Sub Simple_Click()
 
-Label1.Caption = ""
-
 Label1.Caption = Format$(Now, "dddd, dd.mm.yyyy") & " - " & Format$(Time, "hh:mm:ss AM/PM") & " PST"
 OptionTxt.Text = "simple"
-
-ConditionsToFollow
 
 End Sub
 
 Private Sub HTML_Click()
 
-Label1.Caption = ""
-
 Label1.Caption = "<!-- " & Format$(Now, "dddd, dd.mm.yyyy") & " - " & Format$(Time, "hh:mm:ss AM/PM") & " PST" & " -->"
 OptionTxt.Text = "html"
-
-ConditionsToFollow
 
 End Sub
 
 Private Sub CSS_Click()
 
-Label1.Caption = ""
-
 Label1.Caption = "/* " & Format$(Now, "dddd, dd.mm.yyyy") & " - " & Format$(Time, "hh:mm:ss AM/PM") & " PST" & " */"
 OptionTxt.Text = "css"
-
-ConditionsToFollow
 
 End Sub
